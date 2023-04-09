@@ -29,7 +29,6 @@
 #include "IndexedGeometry.h"
 #include <cfloat>
 
-#if defined(linux) || defined(__APPLE__)
 #include <stdlib.h>
 
 template <class T, class U>
@@ -37,7 +36,6 @@ inline T _max(T a, U b)
 {
 	return max(a, b);
 }
-#endif
 
 const char* g_pszHeader = "__IdvSpt_02_";
 

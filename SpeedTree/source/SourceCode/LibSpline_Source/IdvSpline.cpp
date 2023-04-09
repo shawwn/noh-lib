@@ -24,7 +24,6 @@
 #include <map>
 #include <algorithm>
 
-#if defined(linux) || defined(__APPLE__)
 template <class T, class U>
 inline T _max(T a, U b)
 {
@@ -36,7 +35,6 @@ inline T _min(T a, U b)
 {
     return a < b ? a : b;
 }
-#endif
 
 using namespace std;
 static map<string, CIdvBezierSpline*> g_mSplineCache;
