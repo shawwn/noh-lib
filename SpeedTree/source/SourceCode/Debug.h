@@ -43,6 +43,7 @@
             abort( ); \
         }
 
+    #ifdef WIN32
     // memory leak tool
     #include <crtdbg.h>
 
@@ -60,6 +61,7 @@
         } \
         else \
             _RPT1(_CRT_WARN, "\n%s - no memory leaks\n\n", id)
+    #endif // WIN32
 
 #else
     //  If in release mode, st_assert is defined as a no op.
