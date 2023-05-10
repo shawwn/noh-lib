@@ -367,10 +367,10 @@ Real ln_gamma(Real xx)
 
 // Identification routines for each class - may not work on all compilers?
 
-char* Random::Name()            { return "Random"; }
-char* Uniform::Name()           { return "Uniform"; }
-char* Normal::Name()            { return "Normal"; }
-char* PosGen::Name()            { return "PosGen"; }
-char* SymGen::Name()            { return "SymGen"; }
+char* Random::Name()            { return (char*)"Random"; }
+char* Uniform::Name()           { return (char*)"Uniform"; }
+char* Normal::Name()            { return (char*)"Normal"; }
+char* PosGen::Name()            { return (char*)"PosGen"; }
+char* SymGen::Name()            { return (char*)"SymGen"; }
 
 
