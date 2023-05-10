@@ -77,9 +77,20 @@ inline T __min(T a, T b)
 #endif*/
 
 //  includes
+// TKTK: SpeedTree is a fan of "using namespace std;". Since std::byte was introduced as an enum type
+// rather than unsigned char, it doesn't autoconvert; e.g. int foo = byte(5); throws a warning, which
+// happens all over the place in SpeedTree.
+//
+// Punt by doing #define byte std_byte. Horrible hack, A+ results.
+// Discussion: https://twitter.com/theshawwn/status/1656175609599459330
+#pragma push_macro("byte")
+#undef byte
+#define byte std_byte
 #include <cstddef>
+#undef byte
+#pragma pop_macro("byte")
 
-//  forward refernces
+//  forward references
 class CIndexedGeometry;
 class CTreeEngine;
 class CLeafGeometry;
