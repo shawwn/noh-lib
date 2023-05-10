@@ -17,6 +17,7 @@
 //  nondisclosure agreement with Interactive Data Visualization and may not 
 //  be copied or disclosed except in accordance with the terms of that 
 //  agreement.
+#pragma once
 
 #include "LibGlobals_Source/IdvGlobals.h"
 #include "LibVector_Source/IdvVector.h"
