@@ -242,7 +242,7 @@ void CBranchGeometry::SetNumStrips(unsigned short nLodLevel, unsigned short nNum
 
     for (int i = 0; i < nNumStrips; ++i)
     {
-        m_pStripLengths[nLodLevel][i] = NULL;
+        m_pStripLengths[nLodLevel][i] = 0;
         m_pStrips[nLodLevel][i] = NULL;
     }
 }
