@@ -20,7 +20,6 @@
 #pragma once
 #include "Debug.h"
 #include "LibVector_Source/IdvVector.h"
-typedef unsigned char byte;
 
 
 ///////////////////////////////////////////////////////////////////////  
@@ -95,7 +94,7 @@ public:
 
         // tables
 #ifdef SPEEDTREE_DATA_IS_INTERLEAVED
-        byte*                   GetVertexTable(void) const                          { return m_pInterleavedVertexes; }
+        uint8_t*                GetVertexTable(void) const                          { return m_pInterleavedVertexes; }
 #else
         float*                  GetVertexColorTable(void) const                     { return m_pColors; }
         float*                  GetVertexCoordTable(void) const                     { return m_pCoords; }
@@ -148,7 +147,7 @@ private:
         unsigned int*           m_pTriangleCounts;
 
 #ifdef SPEEDTREE_DATA_IS_INTERLEAVED
-        byte*                   m_pInterleavedVertexes; // interleaved branch data used for OpenGL and DirectX
+        uint8_t*                m_pInterleavedVertexes; // interleaved branch data used for OpenGL and DirectX
 #else
         float*                  m_pColors;              // colors, three values per vertex (r, g, b)
         float*                  m_pCoords;              // coordinates, three values per vertex (x, y, z)
@@ -156,5 +155,5 @@ private:
         float*                  m_pTexCoords;           // textures, two values per vertex (s, t)
 #endif
         float*                  m_pWeights;             // wind weights, one value per vertex
-        byte*                   m_pWindGroups;          // wind groups, one value per group
+        uint8_t*                m_pWindGroups;          // wind groups, one value per group
 };

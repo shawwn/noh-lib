@@ -17,7 +17,3 @@ add_library(SpeedTree STATIC
         ${SpeedTree_LibVector_Source___cpp}
         )
 
-target_include_directories(SpeedTree PRIVATE "${SPEEDTREE_SOURCE_DIR}")
-target_precompile_headers(SpeedTree PRIVATE "${SPEEDTREE_SOURCE_DIR}/SpeedTreeRT_common.h")
-
-

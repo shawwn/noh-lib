@@ -297,10 +297,10 @@ void CBranchGeometry::SetNumVertices(unsigned short nNumVertexes)
     else if (m_bVertexWeighting && m_pWindEngine->GetBranchWindMethod( ) == CSpeedTreeRT::WIND_CPU)
     {
         m_pWeights = new float[nNumVertexes];
-        m_pWindGroups = new byte[nNumVertexes];
+        m_pWindGroups = new uint8_t[nNumVertexes];
     }
     st_assert(m_nVertexSize > 0);
-    m_pInterleavedVertexes = new byte[m_nVertexSize * nNumVertexes];
+    m_pInterleavedVertexes = new uint8_t[m_nVertexSize * nNumVertexes];
 #endif
 
 #ifdef SPEEDTREE_DATA_FORMAT_DIRECTX
@@ -314,10 +314,10 @@ void CBranchGeometry::SetNumVertices(unsigned short nNumVertexes)
     else if (m_bVertexWeighting && m_pWindEngine->GetBranchWindMethod( ) == CSpeedTreeRT::WIND_CPU)
     {
         m_pWeights = new float[nNumVertexes];
-        m_pWindGroups = new byte[nNumVertexes];
+        m_pWindGroups = new uint8_t[nNumVertexes];
     }
     st_assert(m_nVertexSize > 0);
-    m_pInterleavedVertexes = new byte[m_nVertexSize * nNumVertexes];
+    m_pInterleavedVertexes = new uint8_t[m_nVertexSize * nNumVertexes];
 #endif
 
 #ifdef SPEEDTREE_DATA_FORMAT_NETIMMERSE
@@ -329,7 +329,7 @@ void CBranchGeometry::SetNumVertices(unsigned short nNumVertexes)
     if (m_bVertexWeighting)
     {
         m_pWeights = new float[nNumVertexes];
-        m_pWindGroups = new byte[nNumVertexes];
+        m_pWindGroups = new uint8_t[nNumVertexes];
     }
 
     if (m_bManualLighting)
@@ -469,7 +469,7 @@ void CBranchGeometry::AddVertexTexCoord(const float* pTexCoord, short sIndex)
 
 #ifdef SPEEDTREE_DATA_FORMAT_DIRECTX
     st_assert(m_pInterleavedVertexes);
-    byte* pWrite = m_pInterleavedVertexes + m_nVertexCounter * m_nVertexSize + 3 * sizeof(float);
+    uint8_t* pWrite = m_pInterleavedVertexes + m_nVertexCounter * m_nVertexSize + 3 * sizeof(float);
     pWrite += (m_bVertexWeighting && m_pWindEngine->GetBranchWindMethod( ) == CSpeedTreeRT::WIND_GPU) ? 8 : 0;
     pWrite += m_bManualLighting ? 4 : 3 * sizeof(float);
 
@@ -503,7 +503,7 @@ void CBranchGeometry::AddVertexWind(float fWeight, unsigned char chGroup)
     if (m_pWindEngine->GetBranchWindMethod( ) == CSpeedTreeRT::WIND_GPU)
     {
         st_assert(m_pInterleavedVertexes);
-        byte* pWriteLocation = m_pInterleavedVertexes + (m_nVertexCounter + 1) * m_nVertexSize - 5;
+        uint8_t* pWriteLocation = m_pInterleavedVertexes + (m_nVertexCounter + 1) * m_nVertexSize - 5;
         memcpy(pWriteLocation, &fWeight, sizeof(float));
         memcpy(pWriteLocation + 4, &chGroup, 1);
     }

@@ -26,7 +26,6 @@
 #pragma warning (disable : 4786)
 #include "SpeedTreeRT.h"
 #include "LibVector_Source/IdvVector.h"
-typedef unsigned char byte;
 
 
 ///////////////////////////////////////////////////////////////////////  
@@ -163,7 +162,7 @@ private:
         std::vector<unsigned char> m_vTexIndices0;                  // used for composite map manipulation in CAD & MAX/MAYA, not needed by end user
         std::vector<float>      m_vTexCoords1;                      // table of S & T texture coordinates, two floats per coordinate (2nd layer)
         std::vector<float>      m_vWindWeights;                     // table of weights, values from from 0.0 for rigid to 1.0 for flexible
-        std::vector<byte>       m_vWindMatrixIndices;               // table of wind matrix indices, ranging from 0 to num_wind_matrices
+        std::vector<uint8_t>    m_vWindMatrixIndices;               // table of wind matrix indices, ranging from 0 to num_wind_matrices
 };
 
 
