@@ -49,7 +49,7 @@ static inline int GetRandom(int nMin, int nMax)
 
 static inline float GetRandom(float fMin, float fMax)
 {
-    float fUnit = float(rand( )) / RAND_MAX;
+    float fUnit = float(rand( )) / float(RAND_MAX);
     float fDiff = fMax - fMin;
 
     return fMin + fUnit * fDiff;
