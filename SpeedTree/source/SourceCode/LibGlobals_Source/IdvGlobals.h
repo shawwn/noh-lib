@@ -83,7 +83,7 @@ static inline std::string IdvFormatString(const char* pField, ...)
     IdvTmpString szBuffer;
 
     va_start(vlArgs, pField);
-    (void) vsprintf(szBuffer, pField, vlArgs);
+    (void) vsnprintf(szBuffer, c_nIdvMaxStringSize, pField, vlArgs);
 
     return szBuffer;
 }
